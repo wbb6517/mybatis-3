@@ -15,13 +15,6 @@
  */
 package org.apache.ibatis.autoconstructor;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
-import java.io.Reader;
-import java.util.List;
-
 import org.apache.ibatis.BaseDataTest;
 import org.apache.ibatis.exceptions.PersistenceException;
 import org.apache.ibatis.executor.ExecutorException;
@@ -33,17 +26,24 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.io.Reader;
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 class AutoConstructorTest {
   private static SqlSessionFactory sqlSessionFactory;
 
   @BeforeAll
   static void setUp() throws Exception {
     // create a SqlSessionFactory
+    // 创建 SqlSessionFactory 对象，基于 mybatis-config.xml 配置文件。
     try (Reader reader = Resources.getResourceAsReader("org/apache/ibatis/autoconstructor/mybatis-config.xml")) {
       sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
     }
 
     // populate in-memory database
+    // 初始化数据到内存数据库，基于 CreateDB.sql SQL 文件。
     BaseDataTest.runScript(sqlSessionFactory.getConfiguration().getEnvironment().getDataSource(),
         "org/apache/ibatis/autoconstructor/CreateDB.sql");
   }

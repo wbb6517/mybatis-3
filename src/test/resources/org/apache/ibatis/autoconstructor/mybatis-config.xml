@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!--
 
-       Copyright 2009-2022 the original author or authors.
+       版权所有 2009-2022 原作者或多位原作者。
 
-       Licensed under the Apache License, Version 2.0 (the "License");
-       you may not use this file except in compliance with the License.
-       You may obtain a copy of the License at
+根据 Apache 许可证 2.0 版（以下简称“许可证”）获得许可;
+       除非遵守许可，否则您不得使用此文件。
+       您可以在以下位置获取许可证的副本
 
-          https://www.apache.org/licenses/LICENSE-2.0
+https://www.apache.org/licenses/LICENSE-2.0
 
-       Unless required by applicable law or agreed to in writing, software
-       distributed under the License is distributed on an "AS IS" BASIS,
-       WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-       See the License for the specific language governing permissions and
-       limitations under the License.
+除非适用法律要求或书面同意，否则软件
+       根据许可分发的是按“原样”分发，
+       不作任何明示或暗示的保证或条件。
+       有关管理权限的特定语言，请参阅许可证，以及
+       许可证的限制。
 
 -->
 <!DOCTYPE configuration
@@ -22,13 +22,15 @@
 
 <configuration>
 
-    <!-- autoMappingBehavior should be set in each test case -->
+    <!-- autoMappingBehavior 应在每个测试用例中设置 -->
 
     <environments default="development">
         <environment id="development">
+            <!-- 配置事务管理 -->
             <transactionManager type="JDBC">
                 <property name="" value=""/>
             </transactionManager>
+            <!-- 配置数据源  -->
             <dataSource type="UNPOOLED">
                 <property name="driver" value="org.hsqldb.jdbcDriver"/>
                 <property name="url" value="jdbc:hsqldb:mem:automapping"/>
@@ -36,7 +38,7 @@
             </dataSource>
         </environment>
     </environments>
-
+    <!-- 扫描 Mapper 文件  -->
     <mappers>
         <mapper resource="org/apache/ibatis/autoconstructor/AutoConstructorMapper.xml"/>
     </mappers>
