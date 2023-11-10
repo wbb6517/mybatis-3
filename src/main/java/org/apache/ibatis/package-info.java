@@ -14,6 +14,6 @@
  *    limitations under the License.
  */
 /**
- * The MyBatis data mapper framework makes it easier to use a relational database with object-oriented applications.
+ * MyBatis数据映射器框架使得在面向对象应用程序中使用关系数据库变得更加容易。
  */
 package org.apache.ibatis;

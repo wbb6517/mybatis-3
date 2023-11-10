@@ -15,5 +15,6 @@
  */
 /**
  * Contains the statement executors.
+ * 执行器
  */
 package org.apache.ibatis.executor;
